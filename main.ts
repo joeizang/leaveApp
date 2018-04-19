@@ -3,6 +3,7 @@ import {Request, Response } from 'express';
 import bodyParser = require('body-parser');
 import path = require('path');
 import * as home from './controllers/home';
+import { Connection, createConnection } from 'typeorm';
 
 //create express server
 const app = express();
@@ -15,6 +16,9 @@ const appport = process.env.Port || 8001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(approot,'dist')));
+
+//create app db connection.
+const dbContext = createConnection();
 
 //serve and respond to routes by api
 app.get('/home', home.home);

@@ -14,6 +14,15 @@ export class Leave
     @Column()
     casualLeaveDays: number;
 
+    @Column({ type: "boolean"})
+    approval: boolean;
+
+    @Column({ type: "varchar", length: 50 })
+    endorsedBy: string;
+
+    @Column({ type: "varchar", length: 50 })
+    approvedBy: string;
+
     @ManyToOne(type => Staff, staff => staff.leave)
     staff: Staff;
 
