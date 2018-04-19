@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(approot, 'dist')));
 //serve and respond to routes by api
 app.get('/home', home.home);
+app.get('/login', home.login);
 //default fall through
 // app.get('*', (req: Request, res: Response)=>{
 //     res.sendFile(approot,'dist/index.html');

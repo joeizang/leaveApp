@@ -6,3 +6,8 @@ var home = function (req, res) {
     return res.status(200).send([{ "welcome": "Welcome to this typescript powered express api!" }]);
 };
 exports.home = home;
+var login = function (req, res) {
+    var dir = "current working directory " + __dirname;
+    return res.status(200).send([{ "message": dir }]);
+};
+exports.login = login;
