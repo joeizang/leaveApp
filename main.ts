@@ -19,8 +19,8 @@ app.use(express.static(path.join(approot,'dist')));
 //serve and respond to routes by api
 app.get('/home', home.home);
 //default fall through
-app.get('*', (req: Request, res: Response)=>{
-    res.sendFile('dist/index.html', approot );
-});
+// app.get('*', (req: Request, res: Response)=>{
+//     res.sendFile(approot,'dist/index.html');
+// });
 
 app.listen(appport, ()=> console.log(`api is alive on port ${appport}`));
