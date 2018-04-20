@@ -1,25 +1,17 @@
-import { Leave } from "models/leave";
-import { Connection, getConnection, EntityManager, Repository } from "typeorm";
+import { LeaveDataService } from "./leaveDataService";
 
 
-export class LeaveDataService
+export class LeaveService
 {
-
-    private _db: Repository<Leave>;
+    private _data: LeaveDataService;
 
     constructor()
     {
-        this._db = getConnection().getRepository(Leave);
+        this._data = new LeaveDataService();
     }
 
-    /**
-     * applyForLeave
-     */
-    public applyForLeave(leave: Leave) 
+    public setLeaveDayAmount(amountofdays: number)
     {
-        if(leave !== null)
-        {
-            this._db.create(leave);
-        }
+        
     }
 }

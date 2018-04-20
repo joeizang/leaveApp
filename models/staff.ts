@@ -30,7 +30,7 @@ export class Staff
     role: Role;
 
     @OneToMany(type => Leave, leave => leave.staff)
-    leave: Leave[];
+    leave: Array<Leave>;
 
     @Index(["staffIdNumber"])
     @Column({type: "varchar", length: 15 })
