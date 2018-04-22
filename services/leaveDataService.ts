@@ -1,10 +1,9 @@
-import { Leave } from "models/leave";
+import { Leave } from "../models/leave";
+import {Staff} from "../models/staff";
 import { Connection, getConnection, EntityManager, Repository } from "typeorm";
-
 
 export class LeaveDataService
 {
-
     private _db: Repository<Leave>;
 
     constructor()
@@ -36,6 +35,31 @@ export class LeaveDataService
             take: 15
         });
 
+        return leaves;
+    }
+    /**
+     * get single leave by leave id
+     * @param leave 
+     */
+    public async getLeave(leave: Leave): Promise<Leave>
+    {
+        let fetchedLeave = this._db.findOneById(leave.id);
+        return leave;
+    }
+
+    /**
+     * get all leaves of a staff
+     * @param staff 
+     */
+    public async getAllStaffLeaves(staff: Staff): Promise<Array<Leave>>
+    {
+        let leaves = this._db.find({
+            select:["leaveDays","casualLeaveDays","id","staff","leaveType","endorsedBy","approvedBy"],
+            where:{
+                staff:staff
+            },
+            take:15
+        });
         return leaves;
     }
 }
