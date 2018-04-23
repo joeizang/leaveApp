@@ -2,9 +2,9 @@
   "name": "leaveapp",
   "version": "1.0.0",
   "description": "Leave management for any organization",
-  "main": ".\\main.js",
+  "main": "../dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ../tests/*.ts"
   },
   "repository": {
     "type": "git",
