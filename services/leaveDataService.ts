@@ -51,7 +51,7 @@ export class LeaveDataService
      * get all leaves of a staff
      * @param staff 
      */
-    public async getAllStaffLeaves(staff: Staff): Promise<Array<Leave>>
+    public async getOneStaffLeaves(staff: Staff): Promise<Array<Leave>>
     {
         let leaves = this._db.find({
             select:["leaveDays","casualLeaveDays","id","staff","leaveType","endorsedBy","approvedBy"],
