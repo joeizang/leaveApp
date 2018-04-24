@@ -4,7 +4,7 @@
   "description": "Leave management for any organization",
   "main": "../dist/main.js",
   "scripts": {
-    "test": "mocha -r ../tests/*.ts"
+    "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./tests/*.ts"
   },
   "repository": {
     "type": "git",

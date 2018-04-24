@@ -76,7 +76,7 @@ var LeaveDataService = /** @class */ (function () {
             var fetchedLeave;
             return __generator(this, function (_a) {
                 fetchedLeave = this._db.findOneById(leave.id);
-                return [2 /*return*/, leave];
+                return [2 /*return*/, fetchedLeave];
             });
         });
     };
@@ -90,10 +90,10 @@ var LeaveDataService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 leaves = this._db.find({
                     select: ["leaveDays", "casualLeaveDays", "id", "staff", "leaveType", "endorsedBy", "approvedBy"],
+                    relations: ["staff", "leaveType"],
                     where: {
                         staff: staff
-                    },
-                    take: 15
+                    }
                 });
                 return [2 /*return*/, leaves];
             });

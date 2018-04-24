@@ -9,11 +9,18 @@ exports.__esModule = true;
 var typeorm_1 = require("typeorm");
 var organization_1 = require("./organization");
 var Role_1 = require("./Role");
-var leave_1 = require("models/leave");
+var leave_1 = require("./leave");
 var Staff = /** @class */ (function () {
     function Staff() {
         this.staffId = 0;
         this.organization = new organization_1.Organization;
+        this.firstname = "";
+        this.lastname = "";
+        this.middlename = "";
+        this.birthdate = new Date;
+        this.role = new Role_1.Role;
+        this.leave = [];
+        this.staffIdNumber = "";
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn()

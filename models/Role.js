@@ -9,6 +9,9 @@ exports.__esModule = true;
 var typeorm_1 = require("typeorm");
 var Role = /** @class */ (function () {
     function Role() {
+        this.roleId = 0;
+        this.roleName = "";
+        this.description = "";
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn()

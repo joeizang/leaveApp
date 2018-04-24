@@ -35,6 +35,4 @@ export class Staff
     @Index(["staffIdNumber"])
     @Column({type: "varchar", length: 15 })
     staffIdNumber: string = "";
-
-
 }

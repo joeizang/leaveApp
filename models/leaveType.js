@@ -7,33 +7,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var typeorm_1 = require("typeorm");
-var staff_1 = require("./staff");
-var Organization = /** @class */ (function () {
-    function Organization() {
+var LeaveType = /** @class */ (function () {
+    function LeaveType() {
         this.id = 0;
         this.name = "";
-        this.address = "";
         this.description = "";
-        this.staff = new Array();
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn()
-    ], Organization.prototype, "id");
+    ], LeaveType.prototype, "id");
     __decorate([
-        typeorm_1.Column()
-    ], Organization.prototype, "name");
+        typeorm_1.Column({ type: "varchar", length: 50 })
+    ], LeaveType.prototype, "name");
     __decorate([
-        typeorm_1.Column()
-    ], Organization.prototype, "address");
-    __decorate([
-        typeorm_1.Column()
-    ], Organization.prototype, "description");
-    __decorate([
-        typeorm_1.OneToMany(function (type) { return staff_1.Staff; }, function (staff) { return staff.organization; })
-    ], Organization.prototype, "staff");
-    Organization = __decorate([
+        typeorm_1.Column({ type: "varchar", length: 150 })
+    ], LeaveType.prototype, "description");
+    LeaveType = __decorate([
         typeorm_1.Entity()
-    ], Organization);
-    return Organization;
+    ], LeaveType);
+    return LeaveType;
 }());
-exports.Organization = Organization;
+exports.LeaveType = LeaveType;

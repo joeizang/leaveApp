@@ -40,16 +40,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 exports.__esModule = true;
 var leaveDataService_1 = require("../services/leaveDataService");
+var leaveIndexApiModel_1 = require("../ApiModels/leaveIndexApiModel");
 var dataService = new leaveDataService_1.LeaveDataService();
 //
 exports.index = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var result;
+    var result, viewresult;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, dataService.getAllLeaves()];
             case 1:
                 result = _a.sent();
-                return [2 /*return*/, res.status(200).send(result)];
+                viewresult = new Array();
+                result.forEach(function (leave) {
+                    var apmodel = new leaveIndexApiModel_1.LeaveIndexApiModel(leave.leaveType.name, leave.staff.firstname + " " + leave.staff.lastname, leave.id);
+                    viewresult.push(apmodel);
+                });
+                return [2 /*return*/, res.status(200).send(viewresult)];
         }
     });
 }); };
