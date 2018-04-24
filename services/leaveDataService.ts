@@ -2,23 +2,19 @@ import { Leave } from "../models/leave";
 import {Staff} from "../models/staff";
 import { Connection, getConnection, EntityManager, Repository } from "typeorm";
 
-export class LeaveDataService
-{
+export class LeaveDataService {
     private _db: Repository<Leave>;
 
-    constructor()
-    {
+    constructor() {
         this._db = getConnection().getRepository(Leave);
     }
 
     /**
      * applyForLeave
      */
-    public applyForLeave(leave: Leave): void 
-    {
-        if(leave !== null)
-        {
-            let entity = this._db.create(leave);
+    public applyForLeave(leave: Leave): void {
+        if(leave !== null) {
+            let entity: Leave  = this._db.create(leave);
             this._db.save(entity);
         }
     }
@@ -26,9 +22,8 @@ export class LeaveDataService
     /**
      * getAllLeaves
      */
-    public async getAllLeaves(): Promise<Array<Leave>>
-    {
-        let leaves = this._db.find({
+    public async getAllLeaves(): Promise<Array<Leave>> {
+        let leaves: Promise<Array<Leave>> = this._db.find({
             select: ["leaveDays","casualLeaveDays","id","staff","leaveType","endorsedBy","approvedBy"],
             relations: ["staff", "leaveType"],
             skip: 5,
@@ -39,26 +34,24 @@ export class LeaveDataService
     }
     /**
      * get single leave by leave id
-     * @param leave 
+     * @param leave
      */
-    public async getLeave(leave: Leave): Promise<Leave>
-    {
-        let fetchedLeave = await this._db.findOneById(leave.id,{relations: });
+    public async getLeave(leave: Leave): Promise<Leave> {
+        let fetchedLeave: Leave = await this._db.findOneById(leave.id);
         return fetchedLeave;
     }
 
     /**
      * get all leaves of a staff
-     * @param staff 
+     * @param staff
      */
-    public async getOneStaffLeaves(staff: Staff): Promise<Array<Leave>>
-    {
-        let leaves = this._db.find({
+    public async getOneStaffLeaves(staff: Staff): Promise<Array<Leave>> {
+        let leaves: Promise<Array<Leave>> = this._db.find({
             select:["leaveDays","casualLeaveDays","id","staff","leaveType","endorsedBy","approvedBy"],
+            relations:["staff", "leaveType"],
             where:{
                 staff:staff
-            },
-            take:15
+            }
         });
         return leaves;
     }
