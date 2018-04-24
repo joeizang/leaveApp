@@ -43,8 +43,8 @@ export class LeaveDataService
      */
     public async getLeave(leave: Leave): Promise<Leave>
     {
-        let fetchedLeave = this._db.findOneById(leave.id);
-        return leave;
+        let fetchedLeave = await this._db.findOneById(leave.id,{relations: });
+        return fetchedLeave;
     }
 
     /**

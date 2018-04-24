@@ -4,11 +4,11 @@ import { Entity, PrimaryGeneratedColumn, Index, Column } from "typeorm";
 export class Role
 {
     @PrimaryGeneratedColumn()
-    roleId: number;
+    roleId: number = 0;
 
     @Column({type: "varchar", length: 50, unique: true })
-    roleName: string;
+    roleName: string = "";
 
     @Column({type: "varchar", length: "100"})
-    description: string;
+    description: string = "";
 }
