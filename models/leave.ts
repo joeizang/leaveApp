@@ -6,26 +6,26 @@ import { LeaveType } from "models/leaveType";
 export class Leave
 {
     @PrimaryGeneratedColumn()
-    id: number;
+    id: number = 0;
 
     @Column()
-    leaveDays: number;
+    leaveDays: number = 0;
 
     @Column()
-    casualLeaveDays: number;
+    casualLeaveDays: number = 0 ;
 
     @Column({ type: "boolean"})
-    approval: boolean;
+    approval: boolean = false;
 
     @Column({ type: "varchar", length: 50 })
-    endorsedBy: string;
+    endorsedBy: string = "";
 
     @Column({ type: "varchar", length: 50 })
-    approvedBy: string;
+    approvedBy: string = "";
 
     @ManyToOne(type => Staff, staff => staff.leave)
-    staff: Staff;
+    staff: Staff = new Staff();
 
     @OneToOne(type => LeaveType)
-    leaveType: LeaveType;
+    leaveType: LeaveType = new LeaveType();
 }
