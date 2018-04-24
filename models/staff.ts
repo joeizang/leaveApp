@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index, OneToOne, JoinColumn, OneToMany } from "typeorm";
 import { Organization } from "./organization";
 import { Role } from "./Role";
-import { Leave } from "models/leave";
+import { Leave } from "./leave";
 
 @Entity()
 export class Staff

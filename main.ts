@@ -1,5 +1,4 @@
 import express = require('express');
-import {Request, Response } from 'express';
 import bodyParser = require('body-parser');
 import path = require('path');
 import * as home from './controllers/home';

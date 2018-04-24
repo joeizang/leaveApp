@@ -37,7 +37,7 @@ export class LeaveDataService {
      * @param leave
      */
     public async getLeave(leave: Leave): Promise<Leave> {
-        let fetchedLeave: Leave = await this._db.findOneById(leave.id);
+        let fetchedLeave: Promise<Leave> = this._db.findOneById(leave.id);
         return fetchedLeave;
     }
 
