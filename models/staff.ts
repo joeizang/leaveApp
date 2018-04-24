@@ -14,27 +14,27 @@ export class Staff
 
     @Index(["firstname","lastname"])
     @Column({ type: "varchar", length: 50 })
-    firstname: string;
+    firstname: string = "";
 
     @Column({type: "varchar", length: 50 })
-    lastname: string;
+    lastname: string = "";
 
     @Column({type: "varchar", length: 50 })
-    middlename: string;
+    middlename: string = "";
 
     @Column({type: "date" })
-    birthdate: Date;
+    birthdate: Date = new Date;
 
     @OneToOne(type => Role)
     @JoinColumn()
-    role: Role;
+    role: Role = new Role;
 
     @OneToMany(type => Leave, leave => leave.staff)
-    leave: Array<Leave>;
+    leave: Array<Leave> = [];
 
     @Index(["staffIdNumber"])
     @Column({type: "varchar", length: 15 })
-    staffIdNumber: string;
+    staffIdNumber: string = "";
 
 
 }
