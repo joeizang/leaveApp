@@ -7,21 +7,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var typeorm_1 = require("typeorm");
-var staff_1 = require("models/staff");
-var leaveType_1 = require("models/leaveType");
+var staff_1 = require("../models/staff");
+var leaveType_1 = require("../models/leaveType");
 var Leave = /** @class */ (function () {
     function Leave() {
+        this.id = 0;
+        this.leaveDays = 0;
+        this.casualLeaveDays = 0;
+        this.approval = false;
+        this.endorsedBy = "";
+        this.approvedBy = "";
+        this.staff = new staff_1.Staff();
+        this.leaveType = new leaveType_1.LeaveType();
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn()
     ], Leave.prototype, "id");
     __decorate([
+        typeorm_1.Index(),
         typeorm_1.Column()
     ], Leave.prototype, "leaveDays");
     __decorate([
         typeorm_1.Column()
     ], Leave.prototype, "casualLeaveDays");
     __decorate([
+        typeorm_1.Index(),
         typeorm_1.Column({ type: "boolean" })
     ], Leave.prototype, "approval");
     __decorate([

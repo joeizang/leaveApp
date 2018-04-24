@@ -5,7 +5,7 @@ import { Staff } from "./staff";
 export class Organization
 {
     @PrimaryGeneratedColumn()
-    id: number | undefined;
+    id: number = 0;
 
     @Column()
     name: string = "";
