@@ -1,4 +1,9 @@
 {
-    "type":"sqlite",
-    "database": "./leaveappdb.sql"
-}
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "testpassword",
+    "database": "leaveappdb",
+    "connectTimeout":15000
+ }

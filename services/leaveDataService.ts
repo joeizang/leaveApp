@@ -1,12 +1,12 @@
 import { Leave } from "../models/leave";
 import {Staff} from "../models/staff";
-import { Connection, getConnection, EntityManager, Repository } from "typeorm";
+import { Connection, getConnection, EntityManager, Repository, getManager } from "typeorm";
 
 export class LeaveDataService {
     private _db: Repository<Leave>;
 
     constructor() {
-        this._db = getConnection().getRepository(Leave);
+        this._db = getManager().getRepository(Leave);
     }
 
     /**

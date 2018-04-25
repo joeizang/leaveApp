@@ -1,28 +1,26 @@
 {
   "compilerOptions": {
-    /* Basic Options */
-        "lib": ["es5", "es6", "es2015", "es2017"],
-        "outDir": "build/compiled",
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "sourceMap": true,
-        "noImplicitAny": true,
-        "declaration": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true,
-        "stripInternal": true,
-        "pretty": true,
-        "strictNullChecks": true,
-        "noUnusedLocals": true
-    },
-    "exclude": [
-        "tmp",
-        "temp",
-        "build",
-        "node_modules"
+    "declaration": true,
+    "module": "commonjs",
+    "lib": [
+      "es2015", "dom"
+    ],
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "./lib",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "./node_modules/@types"
     ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*-spec.ts"
+  ]
 }
-

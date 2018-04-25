@@ -39,7 +39,7 @@ var leave_1 = require("../models/leave");
 var typeorm_1 = require("typeorm");
 var LeaveDataService = /** @class */ (function () {
     function LeaveDataService() {
-        this._db = typeorm_1.getConnection().getRepository(leave_1.Leave);
+        this._db = typeorm_1.getManager().getRepository(leave_1.Leave);
     }
     /**
      * applyForLeave

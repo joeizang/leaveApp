@@ -119,3 +119,6 @@ typings/
 # idea artifacts 
 .idea/*
 .idea/
+
+# ormconfig file
+ormconfig.json
