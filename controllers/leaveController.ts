@@ -5,7 +5,7 @@
 import  express = require('express');
 import { Request, Response } from "express";
 import { LeaveDataService } from "../services/leaveDataService";
-import { LeaveIndexApiModel } from 'ApiModels/leaveIndexApiModel';
+import { LeaveIndexApiModel } from '../ApiModels/leaveIndexApiModel';
 
 
 
