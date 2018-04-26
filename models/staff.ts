@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index, OneToOne, JoinColumn, OneToMany } from "typeorm";
 import { Organization } from "./organization";
 import { Role } from "./Role";
-import { Leave } from "./leave";
+import { Leave } from "models/leave";
 
 @Entity()
 export class Staff
@@ -30,9 +30,11 @@ export class Staff
     role: Role = new Role;
 
     @OneToMany(type => Leave, leave => leave.staff)
-    leave: Array<Leave> = [];
+    leave: Array<Leave> = new Array<Leave>();
 
     @Index(["staffIdNumber"])
     @Column({type: "varchar", length: 15 })
     staffIdNumber: string = "";
+
+
 }

@@ -37,8 +37,12 @@ export class LeaveDataService {
      * @param leave
      */
     public async getLeave(leave: Leave): Promise<Leave> {
-        let fetchedLeave: Promise<Leave> = this._db.findOneById(leave.id);
-        return fetchedLeave;
+        let fetchedLeave: Leave | undefined = await this._db.findOneById(leave.id);
+        if(typeof fetchedLeave === "undefined") {
+            throw new Error("Record not found.");
+        } else {
+            return fetchedLeave;
+        }
     }
 
     /**

@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Index, ManyToOne, Column, OneToOne } from "typeorm";
-import { Staff } from "../models/staff";
-import { LeaveType } from "../models/leaveType";
+import { Staff } from "models/staff";
+import { LeaveType } from "models/leaveType";
 
 @Entity()
 export class Leave
@@ -8,14 +8,12 @@ export class Leave
     @PrimaryGeneratedColumn()
     id: number = 0;
 
-    @Index()
     @Column()
     leaveDays: number = 0;
 
     @Column()
     casualLeaveDays: number = 0 ;
 
-    @Index()
     @Column({ type: "boolean"})
     approval: boolean = false;
 

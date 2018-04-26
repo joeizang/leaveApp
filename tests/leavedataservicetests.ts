@@ -4,14 +4,23 @@ import "mocha";
 import { Leave } from "../models/leave";
 
 
-describe('getAllLeaves function', () => {
+describe("getAllLeaves function", () => {
 
-    it('should return an array of leaves', async () => {
-        const lds = new LeaveDataService();
-        //Act
-        const result = await lds.getAllLeaves();
+    it("should return an array of leaves", async () => {
+        const lds: LeaveDataService = new LeaveDataService();
+        // act
+        const result: Array<Leave> = await lds.getAllLeaves();
 
-        //Assert or Expect
+        // assert or Expect
         expect(result).to.be.an.instanceof(Array<Leave>());
-    })
-})
+    });
+});
+
+describe("getLeave function", () => {
+    it("should return a leave", async () => {
+        const lds: LeaveDataService = new LeaveDataService();
+        const leave: Leave = new Leave();
+        const result: Leave = await lds.getLeave(leave);
+        expect(result).to.be.an.instanceof(Leave);
+    });
+});
