@@ -23,7 +23,7 @@
     "sqlite3": "^4.0.0",
     "tslint": "^5.9.1",
     "typeorm": "^0.1.21",
-    "typescript": "^2.8.1"
+    "typescript": "^2.8.3"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
